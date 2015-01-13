@@ -1,8 +1,0 @@
-{
-  "name": "records-api",
-  "main": "server.js",
-  "dependencies": {
-    "mongoose": "^3.8.21",
-    "restify": "^2.8.4"
-  }
-}
