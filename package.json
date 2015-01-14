@@ -1,0 +1,22 @@
+{
+  "name": "records-api",
+  "version": "0.0.1",
+  "description": "A simple records api service",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/allenzhao/records-api.git"
+  },
+  "author": "Allen Zhao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/allenzhao/records-api/issues"
+  },
+  "homepage": "https://github.com/allenzhao/records-api",
+  "dependencies": {
+    "express": "^4.10.7"
+  }
+}
