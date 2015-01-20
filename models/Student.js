@@ -45,6 +45,11 @@ var StudentSchema = new mongoose.Schema({
         type: String,
         default: '',
         required: '请输入 DynEd 班级'
+    },
+    email: {
+        type: String,
+        default: '',
+        required: '请输入 E-mail'
     }
 });
 
