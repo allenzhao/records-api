@@ -1,4 +1,3 @@
-
 // Import require files.
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -26,11 +25,11 @@ app.all('/*', function (req, res, next) {
         next();
     }
 });
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use('/', require('./routes'));
 
 app.use(function (req, res, next) {
-    if(env == 'development'){
+    if (env == 'development') {
         var err = new Error('Resource Not Found');
         err.status = 404;
         next(err);

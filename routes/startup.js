@@ -3,32 +3,28 @@ var DetailsModel = require('../models/Details');
 var CheckInHelpers = require('../checkInHelpers');
 var startup = {
     index: function (req, res) {
-        var ip = req.ip;
-        var time = Date.now();
-
+        var ip = req.ip.toString();
         ClassroomInfoModel.findOne({IPAddress: ip}, function (err, data) {
             if (err) {
                 res.status(500);
                 res.json(err);
             } else {
-                if (CheckInHelpers.checkLocation(time, data.location)) {
+                if (CheckInHelpers.checkLocation(data.location)) {
                     DetailsModel.findOne({IP: ip}, function (err, data) {
                         if (err) {
                             res.status(500);
                             res.json({
                                 code: 500,
                                 err: err,
-                                message: "系统错误"
+                                message: "系统错误1"
                             });
                         } else {
-                            // Do sth with data
-                            var alreadyCheckedIn = true;
-                            if (alreadyCheckedIn) {
+                            if (data) {
                                 res.status(200);
                                 res.json({
                                     code: 200,
                                     message: "已经登录",
-                                    student: alreadyCheckedIn.student
+                                    data: data
                                 });
                             } else {
                                 res.status(202);

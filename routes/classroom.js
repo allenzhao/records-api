@@ -1,7 +1,7 @@
-var studentModel = require('../models/Student');
-var student = {
+var ClassroomModel = require('../models/ClassroomInfo');
+var classroom = {
     getOne: function (req, res) {
-        studentModel.findOne({studentId: req.params.id}, function (err, data) {
+        ClassroomModel.findById(req.params.id, function (err, data) {
             if (err) {
                 res.status(500);
                 res.json(err);
@@ -15,7 +15,7 @@ var student = {
     },
 
     getAll: function (req, res) {
-        studentModel.find(function (err, data) {
+        ClassroomModel.find(function (err, data) {
             if (err) {
                 res.status(500);
                 res.json(err);
@@ -29,23 +29,23 @@ var student = {
     },
 
     create: function (req, res) {
-        var student = new studentModel(req.body);
-        student.save(function (err) {
+        var Classroom = new ClassroomModel(req.body);
+        Classroom.save(function (err) {
             if (err) {
                 res.status(500);
                 res.json(err);
             } else {
                 res.json({
                     status: 200,
-                    message: 'Student added to db.',
-                    data: student
+                    message: 'Classroom added to db.',
+                    data: Classroom
                 });
             }
         });
     },
 
     update: function (req, res) {
-        studentModel.findOneAndUpdate({studentId: req.params.id}, req.body, function (err, student) {
+        ClassroomModel.findOneAndUpdate({_id: req.params.id}, req.body, function (err, Classroom) {
             if (err) {
                 res.status(500);
                 res.json(err);
@@ -53,25 +53,24 @@ var student = {
                 res.json({
                     status: 200,
                     message: 'Updates saved.',
-                    data: student
+                    data: Classroom
                 });
             }
         });
     },
 
-    deleteStudent: function (req, res) {
-        studentModel.remove({studentId: req.params.id}, function (err) {
+    deleteclassroom: function (req, res) {
+        ClassroomModel.remove({_id: req.params.id}, function (err) {
             if (err) {
                 res.status(500);
                 res.json(err);
             } else {
                 res.json({
                     status: 200,
-                    message: 'Deleted student.'
+                    message: 'Deleted Classroom.'
                 });
             }
         });
     }
 };
-
-module.exports = student;
+module.exports = classroom;

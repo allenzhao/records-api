@@ -3,13 +3,15 @@ var mongoose = require('mongoose');
 var DetailsSchema = new mongoose.Schema({
     Student: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Student'
+        ref: 'Student',
+        required: 'Student '
     },
     IP: {
         type: Number
     },
     checkInTime: {
-        type: Date
+        type: Date,
+        default: Date.now()
     },
     changeTime: {
         type: Date
@@ -19,10 +21,12 @@ var DetailsSchema = new mongoose.Schema({
     },
     keepTime: {
         type: Date
+        //default: Date.now()
     },
     signInState: {
         type: String,
-        enum: ['正常', '迟到', '旷课']
+        enum: ['正常', '迟到', '旷课'],
+        default: ''
     },
     action: {
         type: String,

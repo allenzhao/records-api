@@ -1,9 +1,23 @@
 {
-  "current_env" : "development",
+  "current_env": "development",
   "development": {
     "token": "43WSIma6W0",
     "db": "mongodb://localhost:27017/records-dev",
-    "port": 4000
+    "port": 4000,
+    "allowedTime": {
+      "北门一层": {
+        "start": 7,
+        "end": 18
+      },
+      "北门二层": {
+        "start": 7,
+        "end": 10
+      },
+      "知行": {
+        "start": 11,
+        "end": 20
+      }
+    }
   },
   "test": {
     "token": "hehe",
