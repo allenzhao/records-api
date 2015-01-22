@@ -13,10 +13,13 @@ router.get('/student/:id', student.getOne);
 router.post('/student/', student.create);
 router.put('/student/:id', student.update);
 router.delete('/student/:id', student.deleteStudent);
-
+// Classroom info routes
 router.post('/classroom/', classroom.create);
 router.get('/classrooms/', classroom.getAll);
 router.get('/classroom/:id', classroom.getOne);
+router.put('/classroom/:id',classroom.update);
+router.delete('/classroom/:id',classroom.deleteclassroom);
+
 //// Records routes
 //router.get('/records',records.getAll);
 //router.get('/student/:studentId/records',records.getByStudentId);

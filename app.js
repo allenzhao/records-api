@@ -3,12 +3,15 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var app = express();
+var autoIncrement = require('mongoose-auto-increment');
 
 // Import configure.
 var CFG = require('./config.json');
 var env = CFG.current_env;
 var port = CFG[env].port || 8080;
-mongoose.connect(CFG[env].db);
+// Connect DB.
+var connection = mongoose.connect(CFG[env].db);
+autoIncrement.initialize(connection);
 
 // Token verification
 app.all('/*', [require('./tokenValidation')]);

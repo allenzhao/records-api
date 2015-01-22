@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var autoIncrement = require('mongoose-auto-increment');
 
 var ClassroomInfoSchema = new mongoose.Schema({
     IPAddress: {
@@ -17,5 +18,6 @@ var ClassroomInfoSchema = new mongoose.Schema({
         required: '请输入教室位置'
     }
 });
+ClassroomInfoSchema.plugin(autoIncrement.plugin,'ClassroomInfo');
 
 module.exports = mongoose.model('ClassroomInfo', ClassroomInfoSchema);
