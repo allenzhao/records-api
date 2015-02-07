@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var autoIncrement = require('mongoose-auto-increment');
 
 var WeekPlanSchema = new mongoose.Schema({
     startCheckInTime: {
@@ -29,4 +30,5 @@ var WeekPlanSchema = new mongoose.Schema({
     }
 });
 
+WeekPlanSchema.plugin(autoIncrement.plugin, 'WeekPlan');
 module.exports = mongoose.model('WeekPlan', WeekPlanSchema);

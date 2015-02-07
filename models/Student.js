@@ -1,4 +1,6 @@
 var mongoose = require('mongoose');
+var autoIncrement = require('mongoose-auto-increment');
+
 
 var StudentSchema = new mongoose.Schema({
     name: {
@@ -34,7 +36,8 @@ var StudentSchema = new mongoose.Schema({
     sex: {
         type: String,
         default: '',
-        required: '请输入性别'
+        required: '请输入性别',
+        enum: ['男', '女']
     },
     telephone: {
         type: String,
@@ -52,5 +55,6 @@ var StudentSchema = new mongoose.Schema({
         required: '请输入 E-mail'
     }
 });
+StudentSchema.plugin(autoIncrement.plugin, 'Student');
 
 module.exports = mongoose.model('Student', StudentSchema);

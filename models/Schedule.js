@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var autoIncrement = require('mongoose-auto-increment');
 
 var ScheduleSchema = new mongoose.Schema({
     Student: {
@@ -18,4 +19,5 @@ var ScheduleSchema = new mongoose.Schema({
     }
 });
 
+ScheduleSchema.plugin(autoIncrement.plugin, 'Schedule');
 module.exports = mongoose.model('Schedule', ScheduleSchema);

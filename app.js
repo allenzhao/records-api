@@ -11,6 +11,7 @@ var env = CFG.current_env;
 var port = CFG[env].port || 8080;
 // Connect DB.
 var connection = mongoose.connect(CFG[env].db);
+
 autoIncrement.initialize(connection);
 
 // Token verification

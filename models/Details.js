@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var autoIncrement = require('mongoose-auto-increment');
 
 var DetailsSchema = new mongoose.Schema({
     Student: {
@@ -41,4 +42,5 @@ var DetailsSchema = new mongoose.Schema({
     }
 });
 
+DetailsSchema.plugin(autoIncrement.plugin, 'Details');
 module.exports = mongoose.model('Details', DetailsSchema);

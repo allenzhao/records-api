@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var autoIncrement = require('mongoose-auto-increment');
 
 var TermPlanSchema = new mongoose.Schema({
     StartTime: {
@@ -20,4 +21,5 @@ var TermPlanSchema = new mongoose.Schema({
     }
 });
 
+TermPlanSchema.plugin(autoIncrement.plugin, 'TermPlan');
 module.exports = mongoose.model('TermPlan', TermPlanSchema);
